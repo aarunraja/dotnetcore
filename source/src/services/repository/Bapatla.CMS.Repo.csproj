@@ -9,7 +9,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\common\core\basic\Bapatla.CMS.Core.Base\Bapatla.CMS.Core.Base.csproj" />
+    <ProjectReference Include="..\..\common\core\repository\Bapatla.CMS.Core.Repository\Bapatla.CMS.Core.Repository.csproj" />
     <ProjectReference Include="..\model\Bapatla.CMS.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Extensions.Options">
+      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.options\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

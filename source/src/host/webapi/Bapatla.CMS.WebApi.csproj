@@ -8,6 +8,14 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\common\contract\Bapatla.CMS.Contract.csproj" />
+    <ProjectReference Include="..\..\services\domainsvc\Bapatla.CMS.Services.csproj" />
+    <ProjectReference Include="..\..\services\Model\Bapatla.CMS.Model.csproj" />
+    <ProjectReference Include="..\..\services\repository\Bapatla.CMS.Repo.csproj" />
   </ItemGroup>
 
 </Project>

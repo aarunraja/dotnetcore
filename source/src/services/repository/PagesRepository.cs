@@ -5,62 +5,22 @@ namespace Bapatla.CMS.Repository
     using MongoDB.Bson;
     using MongoDB.Driver;
     using Bapatla.CMS.Domain;
-    
-    public class PagesRepository : IPagesRepository
+    using Bapatla.CMS.Core.Repository;
+    using System.Linq.Expressions;
+    using System;
+
+    public class PagesRepository : MongoRepository<Page>, IPagesRepository
     {
-        private readonly IPageContext _context;
+        
+        private const string PageCollectionName = CollectionNames.PageCollection;
+        private readonly BapatlaDataContext _dataContext;
 
-        public PagesRepository(IPageContext context)
+        public PagesRepository(BapatlaDataContext dataContext)
         {
-            _context = context;
+            _dataContext = dataContext;
         }
 
-        public async Task<IEnumerable<Page>> GetAllPages()
-        {
-            return await _context
-                            .Pages
-                            .Find(_ => true)
-                            .ToListAsync();
-        }
-
-        public Task<Page> GetPage(string path)
-        {
-            FilterDefinition<Page> filter = Builders<Page>.Filter.Eq(m => m.Slug, path);
-
-            return _context
-                    .Pages
-                    .Find(filter)
-                    .FirstOrDefaultAsync();
-        }
-       
-        public async Task Create(Page Page)
-        {
-            await _context.Pages.InsertOneAsync(Page);
-        }
-
-        public async Task<bool> Update(Page Page)
-        {
-            ReplaceOneResult updateResult =
-                await _context
-                        .Pages
-                        .ReplaceOneAsync(
-                            filter: g => g.Id == Page.Id,
-                            replacement: Page);
-
-            return updateResult.IsAcknowledged
-                    && updateResult.ModifiedCount > 0;
-        }
-
-        public async Task<bool> Delete(string path)
-        {
-            FilterDefinition<Page> filter = Builders<Page>.Filter.Eq(m => m.Slug, path);
-
-            DeleteResult deleteResult = await _context
-                                                .Pages
-                                                .DeleteOneAsync(filter);
-
-            return deleteResult.IsAcknowledged
-                && deleteResult.DeletedCount > 0;
-        }
+        protected override IMongoCollection<Page> Collection =>
+            _dataContext.Database.GetCollection<Page>(PageCollectionName);
     }
 }

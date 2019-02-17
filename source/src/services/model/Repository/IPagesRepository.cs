@@ -1,13 +1,11 @@
 namespace Bapatla.CMS.Domain
 {
+    using Bapatla.CMS.Core.Base;
+    using System;
     using System.Collections.Generic;
+    using System.Linq.Expressions;
     using System.Threading.Tasks;
-    public interface IPagesRepository
+    public interface IPagesRepository : IRepository<Page>
     {
-         Task<IEnumerable<Page>> GetAllPages();
-        Task<Page> GetPage(string path);
-        Task Create(Page page);
-        Task<bool> Update(Page page);
-        Task<bool> Delete(string path);
     }
 }

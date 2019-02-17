@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Bapatla.CMS.Domain;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace Bapatla.CMS.api
+namespace Bapatla.CMS.WebApi
 {
     public class Startup
     {
@@ -25,7 +26,17 @@ namespace Bapatla.CMS.api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.InjectServiceDependency();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.Configure<DBSettings>(options =>
+            {
+                options.ConnectionString = Configuration.GetSection("BapatlaDBConnection:ConnectionString").Value;
+                options.Database = Configuration.GetSection("BapatlaDBConnection:Database").Value;
+            });
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

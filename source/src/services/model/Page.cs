@@ -2,13 +2,12 @@ namespace Bapatla.CMS.Domain
 {
     using System;
     using System.Collections.Generic;
+    using Bapatla.CMS.Core.Base;
     using MongoDB.Bson;
     using MongoDB.Bson.Serialization.Attributes;
 
-    public class Page
+    public class Page : DomainEntity
     {
-        [BsonId]
-        public ObjectId Id { get; set; }
         public string Title { get; set; }
         public string Images { get; set; }
         public string MenuPostion { get; set; }
