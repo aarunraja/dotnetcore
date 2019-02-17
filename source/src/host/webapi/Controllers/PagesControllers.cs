@@ -43,7 +43,7 @@ namespace Bapatla.CMS.WebApi
 
         
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(int id, [FromBody] Page page)
+        public async Task<ActionResult> Put(string id, [FromBody] Page page)
         {
             var rtn = await _pageService.Update(page);
             return Ok();

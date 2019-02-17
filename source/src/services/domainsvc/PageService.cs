@@ -32,6 +32,8 @@ namespace Bapatla.CMS.Services
        
         public async Task Create(Page Page)
         {
+            Page.Id = new Guid().ToString("N");
+            Page.PageSlug = StringHelper.GenerateSlug(Page.Title);
             await _pagesRepository.SaveAsync(Page.ToDomain());
             return;
         }

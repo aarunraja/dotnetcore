@@ -15,27 +15,33 @@
             {
                 Id = page.Id.ToString(),
                 Title = page.Title,
-                Images = page.Images,
-                MenuPostion = page.MenuPostion,
+                MainImage = page.MainImage,
+                MenuType = page.MenuType,
                 Position = page.Position,
-                Slug = page.Slug,
-                Descripation = page.Descripation,
-                RootPage = page.RootPage,
-                IsDelete = page.IsDelete
+                PageSlug = page.PageSlug,
+                Description = page.Description,
+                ParentPage = page.ParentPage,
+                ShortDescription = page.ShortDescription,
+                Status = page.Status,
+                IsDelete = page.IsDelete,
+                SEOTitle = page.SEOTitle
             };
         }
         public static Domain.Page ToDomain(this Page page)
         {
             return new Domain.Page()
-            {  
+            {
                 Title = page.Title,
-                Images = page.Images,
-                MenuPostion = page.MenuPostion,
+                MainImage = page.MainImage,
+                MenuType = page.MenuType,
                 Position = page.Position,
-                Slug = page.Slug,
-                Descripation = page.Descripation,
-                RootPage = page.RootPage,
-                IsDelete = page.IsDelete
+                PageSlug = page.PageSlug,
+                Description = page.Description,
+                ParentPage = page.ParentPage,
+                ShortDescription = page.ShortDescription,
+                IsDelete = page.IsDelete,
+                Status= page.Status,
+                SEOTitle = page.SEOTitle
             };
         }
       
