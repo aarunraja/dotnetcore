@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Bapatla.CMS.Repository
+namespace MLC.General.Repository
 {
     public static class CollectionNames
     {
