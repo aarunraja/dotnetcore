@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MLC.General.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:MLC.General.WebApi.AccountsController">
+            <summary>
+            Accounts
+            </summary>
+        </member>
+        <member name="M:MLC.General.WebApi.AccountsController.#ctor(Microsoft.Extensions.Logging.ILogger{MLC.General.WebApi.AccountsController},MLC.Core.ApplicationContext,MLC.General.Domain.IAccountRepository,MLC.Core.IEmailService)">
+            <summary>
+            Accounts Controllers
+            </summary>
+            <param name="logger"></param>
+            <param name="appContext"></param>
+            <param name="accountsRepository"></param>
+            <param name="emailService"></param>
+        </member>
+        <member name="M:MLC.General.WebApi.AccountsController.Get(System.String)">
+            <summary>
+            Get all Accounts
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MLC.General.WebApi.AccountsController.GetById(System.String)">
+            <summary>
+            Get Account by EmailId
+            </summary>
+            <param name="id">Id is an Email</param>
+            <returns></returns>
+        </member>
+        <member name="M:MLC.General.WebApi.AccountsController.Post(MLC.General.Contract.AccountUpsert)">
+            <summary>
+            Create Account
+            </summary>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MLC.General.WebApi.AccountsController.Put(System.String,MLC.General.Contract.AccountUpsert)">
+            <summary>
+            Update Account
+            </summary>
+            <param name="id">id is unique id</param>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MLC.General.WebApi.AccountsController.ChangePassword(MLC.General.Contract.ChangePassword)">
+            <summary>
+            Change Password 
+            </summary>
+            <param name="changePassword"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MLC.General.WebApi.AccountsController.PasswordReset(System.String)">
+            <summary>
+            Reset Password 
+            </summary>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MLC.General.WebApi.AccountsController.Delete(System.String)">
+            <summary>
+            Delete Account
+            </summary>
+            <param name="id">Id is unique id</param>
+            <returns></returns>
+        </member>
+        <member name="T:MLC.General.WebApi.AuthorizeController">
+            <summary>
+            TokenController
+            </summary>
+        </member>
+        <member name="M:MLC.General.WebApi.AuthorizeController.#ctor(Microsoft.Extensions.Logging.ILogger{MLC.General.WebApi.AuthorizeController},Microsoft.Extensions.Configuration.IConfiguration,MLC.Core.ApplicationContext,MLC.General.Domain.IAccountRepository,MLC.Core.IEmailService)">
+            <summary>
+            Authorize Controller
+            </summary>
+            <param name="logger"></param>
+            <param name="config"></param>
+            <param name="appContext"></param>
+            <param name="accountsRepository"></param>
+            <param name="emailService"></param>
+        </member>
+        <member name="M:MLC.General.WebApi.AuthorizeController.CreateToken(MLC.General.Contract.AccountLogin)">
+            <summary>
+            CreateToken
+            </summary>
+            <param name="login"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MLC.General.WebApi.MashaController">
+            <summary>
+            Masha Controller
+            </summary>
+        </member>
+        <member name="F:MLC.General.WebApi.MashaController._logger">
+            <summary>
+            _logger
+            </summary>
+        </member>
+        <member name="M:MLC.General.WebApi.MashaController.#ctor(Microsoft.Extensions.Logging.ILogger{MLC.General.WebApi.MashaController})">
+            <summary>
+            Masha Controller
+            </summary>
+            <param name="logger"></param>
+        </member>
+        <member name="M:MLC.General.WebApi.MashaController.ErrorResponse(MLC.Core.Error)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MLC.General.WebApi.ConfigureExtension.ApiValidation(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Api Configure
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MLC.General.WebApi.ConfigureExtension.DBSetting(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            DB Setting
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MLC.General.WebApi.CustomClaim">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MLC.General.WebApi.CustomClaim.#ctor">
+            <summary>
+            CustomClaim
+            </summary>
+        </member>
+        <member name="F:MLC.General.WebApi.CustomClaim.UserId">
+            <summary>
+            First Name
+            </summary>
+        </member>
+        <member name="F:MLC.General.WebApi.CustomClaim.FirstName">
+            <summary>
+            First Name
+            </summary>
+        </member>
+        <member name="F:MLC.General.WebApi.CustomClaim.LastName">
+            <summary>
+            Last Name
+            </summary>
+        </member>
+        <member name="F:MLC.General.WebApi.CustomClaim.Email">
+            <summary>
+            Email
+            </summary>
+        </member>
+        <member name="F:MLC.General.WebApi.CustomClaim.Role">
+            <summary>
+            Role
+            </summary>
+        </member>
+        <member name="T:MLC.General.WebApi.ServiceDependency">
+            <summary>
+            Service Dependency
+            </summary>
+        </member>
+        <member name="M:MLC.General.WebApi.ServiceDependency.InjectServiceDependency(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            InjectService Dependency
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MLC.General.WebApi.SwaggerServiceExtensions">
+            <summary>
+            SwaggerServiceExtensions
+            </summary>
+        </member>
+        <member name="M:MLC.General.WebApi.SwaggerServiceExtensions.AddSwaggerDocumentation(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add Swagger
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MLC.General.WebApi.SwaggerServiceExtensions.UseSwaggerDocumentation(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            UseSwaggerDocumentation
+            </summary>
+            <param name="app"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

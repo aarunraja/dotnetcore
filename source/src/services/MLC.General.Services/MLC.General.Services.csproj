@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\core\basic\MLC.Core.csproj" />
+    <ProjectReference Include="..\..\host\contract\MLC.General.Contract.csproj" />
+    <ProjectReference Include="..\Model\MLC.General.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
